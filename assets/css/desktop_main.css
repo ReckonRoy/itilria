@@ -1,0 +1,264 @@
+/*-------------------------------------------------------------------------
+======================== Schedule Meeting Section =========================
+--------------------------------------------------------------------------*/
+#schedule-meeting-container
+{
+  background-color: grey;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+#schedule-meeting-container h2{
+  text-align: center;
+  color: white;
+}
+
+.b-c-d
+{
+  display: inline-block;
+  width: 20%;
+  margin-top: 20px;
+}
+
+.b-c-d button{
+  width: 80%;
+  border: 1px solid white;
+  margin-left: 10%;
+  border-radius: 25px;
+  background-color: whitesmoke;
+  color: gray;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+.b-c-d button:hover{
+  background-color: white;
+}
+
+/**----------------------------------------------------------
+================ Contact Modal====================
+-------------------------------------------------------------*/
+#contact-modal{
+    display: none;
+    position: absolute;
+    top: 10%;
+    width: 90%;
+    left: 5%;
+    border: 1px solid black;
+    background-color: white;
+    border: 1px solid gray;
+    height: 500px;
+    z-index: 11;
+    border-radius: 25px;
+    box-shadow: 0px 0px 0px 8px rgba(218,230,237,0.56);
+    padding: 5px;
+  }
+
+/**--------------------------------------------------------------
+================ Schedule Zoom Meeting =========================
+ --------------------------------------------------------------*/
+#schedule-zoom-container
+{
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  width: 60%;
+  border: 1px solid black;
+  z-index: 11;
+  background-color: white;
+  height: 400px;
+  left: 20%;
+  border: 1px solid gray;
+  border-radius: 25px;
+  box-shadow: 0px 0px 0px 8px rgba(218,230,237,0.56);
+}
+
+/*schedule zoom meeting time & date fields*/
+.szc-date-div
+{
+  display: inline-block;
+  width: 49%;
+  margin-top: 50px;
+}
+#szc-date
+{
+  width: 80%;
+  text-align: center;
+  padding: 5px 0;
+}
+#szc-time
+{
+  width: 80%;
+  text-align: center;
+  padding: 5px 0;
+}
+
+/*Services Select*/
+#services-select
+{
+  display: none;
+  position: absolute;
+  top: 18%;
+  width: 90%;
+  left: 5%;
+  background-color: white;
+  border: none;
+  height: 500px;
+  z-index: 12;
+  padding: 5px; 
+}
+
+/*Add another service main div*/
+#as-main{
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  #as-main ul{
+    position: absolute;
+    top: 5%;
+    list-style-type: none;
+    line-height: 1.5em;
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+  }
+
+/*-------------------------------------------------------------------------------
+========================= Schedule A Call ====================================
+--------------------------------------------------------------------------------*/
+#schedule-call-container
+{
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  width: 60%;
+  z-index: 11;
+  background-color: white;
+  height: 450px;
+  left: 20%;
+  border: 1px solid gray;
+  border-radius: 25px;
+  box-shadow: 0px 0px 0px 8px rgba(218,230,237,0.56);
+}
+
+#sc-headerpanel
+{
+  width: 100%;
+  color: gray;
+  background-color: #e0e0e0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.modal-header-panel h2{
+  font-size: 20px;
+  padding: 8px 0;
+  padding-left: 16px;
+  color: gray;
+  font-weight: bold;
+}
+#call-word
+{
+  color: green;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid green;
+}
+/*----------------Close button for schedule a call pop up---------------------*/
+#sc-headerpanel-close
+{
+  width: 40px;
+  font-size: 25px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bolder;
+  z-index: 12;
+  color: gray;
+  cursor: pointer;
+  float: right;
+  margin-right: 16px;
+}
+
+#sc-headerpanel-close:hover
+{
+  color: red;
+}
+/*--------------------schedule a Call meeting time & date fields-------------------------*/
+.sc-date-div
+{
+  display: inline-block;
+  width: 42%;
+  margin-top: 50px;
+}
+
+.time-div
+{
+  margin-left: 5%;
+}
+
+.date-div
+{
+  margin-left: 5%;
+}
+.sc-date-div input[type=date], input[type=time]
+{
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.sc-field-div
+{
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 10px; 
+}
+
+.sc-field-div input[type=text],input[type=email]
+{
+  width: 100%;
+  padding: 5px 5px;
+  border-radius: 25px;
+  border: 1px solid gray;
+}
+
+#sc-name-div
+{
+  margin-top: 20px;
+
+}
+
+/*---------------------------footer schedule a call-----------------------------------*/
+#sc-button-div
+{
+  position: absolute;
+  width: 100%;
+  background-color: #0d2735;
+  bottom: 0;
+  padding: 10px 0;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+#sc-submit-btn
+{
+  float: right;
+  margin-right: 20px;
+  border-radius: 25px;
+  width: 100px;
+  padding: 5px 0;
+  font-weight: bold;
+  color: white;
+  background-color: #18d26e;
+  border: 1px solid #18d26e;
+  text-transform: uppercase;
+}
+
+#sc-submit-btn:hover
+{
+  border: 1px solid white;
+  background-color:#123649;
+
+}
