@@ -17,8 +17,8 @@ session_start();
                 $error = "Please enter a valid name";
               }
 
-            //check if email is valid  
             $emailAddress = $_POST['email'];
+            //check if email is valid  
             if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
                 $error += "<br/>Invalid email format";
             }

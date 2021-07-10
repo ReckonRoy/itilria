@@ -13,16 +13,43 @@ session_start();
     {
         if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['time']) && isset($_POST['date']))
         {
+            $error = "";
             $name = $_POST['name'];
+            //check if name is valid
+            if (!preg_match("/^[a-zA-Z-' ]*$/",$name))
+            {
+                $error = "Please enter a valid name";
+            }
+
             $emailAddress = $_POST['email'];
-            $time = $_POST['time']; 
-            $date = $_POST['date']; 
-            
-            //create phpmailer class object
-            $email = new PHPMailer(true);
-            $zoomMeeting = new ScheduleZoomMeeting($name, $emailAddress, $time, $date);
-            $zoomMeeting->sendConfirmationMail($email);
-            
+            //check if email is valid  
+            if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
+                $error += "<br/>Invalid email format";
+            }
+
+            if(!empty($error))
+            {
+                echo $error; 
+            }else{
+                $time = $_POST['time']; 
+                $date = $_POST['date']; 
+                $timelessLimit = date('H:i', strtotime('10:00'));
+                $timegreatLimit = date('H:i', strtotime('16:00'));
+                //check date validity
+                if($date < date('Y-m-d') || $time < date('H:i'))
+                {
+                    echo "date and time must not be in the past";
+                }else if($time < $timelessLimit || $time > $timegreatLimit){
+                    echo "Please note our meetings time schedule is between {$timelessLimit} and {$timegreatLimit}";
+                }else{   
+                    //create phpmailer class object
+                    $email = new PHPMailer(true);
+                    $zoomMeeting = new ScheduleZoomMeeting($name, $emailAddress, $time, $date);
+                    $zoomMeeting->sendConfirmationMail($email);
+                }
+            }
+        }else{
+            echo "Please fill in all fields";
         }
     }
 

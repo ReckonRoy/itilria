@@ -2609,32 +2609,10 @@ section {
   border: 1px solid gray;
 }
 
-#szc-headerpanel
-{
-  width: 100%;
-  background-color: #0d2735;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
 .modal-header-panel
 {
   display: inline-block;
   width: 55%;
-}
-
-#szc-headerpanel-close
-{
-  border: 1px solid red;
-  width: 40px;
-  font-size: 25px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: bolder;
-  z-index: 12;
-  background-color: white;
-  color: gray;
-  cursor: pointer;
-  float: right;
 }
 
 #szc-main{

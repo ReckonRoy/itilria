@@ -64,17 +64,23 @@
   position: absolute;
   box-sizing: border-box;
   width: 60%;
-  border: 1px solid black;
   z-index: 11;
   background-color: white;
   height: 400px;
   left: 20%;
-  border: 1px solid gray;
   border-radius: 25px;
   box-shadow: 0px 0px 0px 8px rgba(218,230,237,0.56);
 }
-
-/*schedule zoom meeting time & date fields*/
+/*-----------------------------Schedule Zoom Meeting Header Panel---------------------------------*/
+#szc-headerpanel
+{
+  width: 100%;
+  color: white;
+  background-color: #36403d;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+/*---------------------------Schedule Zoom Meeting Time & Date Fields-----------------------------*/
 .szc-date-div
 {
   display: inline-block;
@@ -93,8 +99,63 @@
   text-align: center;
   padding: 5px 0;
 }
+/*--------------------------------------Schedule Zoom Close Meeting Button----------------------------------*/
+#szc-headerpanel-close
+{
+  width: 40px;
+  font-size: 25px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bolder;
+  z-index: 12;
+  color: white;
+  cursor: pointer;
+  float: right;
+  margin-right: 16px;
+}
 
-/*Services Select*/
+#szc-headerpanel-close:hover
+{
+  color: red;
+}
+
+/*------------------------------------------Schedulue Zoom Footer--------------------------------------*/
+#szc-button-div
+{
+  position: absolute;
+  width: 100%;
+  background-color: #36403d;
+  bottom: 0;
+  padding: 10px 0;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+#szc-back-btn:hover
+{
+  color: white;
+}
+
+#szc-submit-btn
+{
+  float: right;
+  margin-right: 20px;
+  border-radius: 25px;
+  width: 100px;
+  padding: 5px 0;
+  font-weight: bold;
+  color: white;
+  background-color: #18d26e;
+  border: 1px solid #18d26e;
+  text-transform: uppercase;
+}
+
+#szc-submit-btn:hover
+{
+  border: 1px solid white;
+  background-color:#123649;
+}
+/*-------------------------------------Services Select-------------------------------------------------*/
 #services-select
 {
   display: none;
@@ -109,7 +170,7 @@
   padding: 5px; 
 }
 
-/*Add another service main div*/
+/*---------------------------------Add another service main div-------------------------------------------*/
 #as-main{
     position: relative;
     height: 400px;
@@ -139,7 +200,6 @@
   background-color: white;
   height: 450px;
   left: 20%;
-  border: 1px solid gray;
   border-radius: 25px;
   box-shadow: 0px 0px 0px 8px rgba(218,230,237,0.56);
 }
