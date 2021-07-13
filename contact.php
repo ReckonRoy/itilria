@@ -212,7 +212,21 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
       </div>
 <!-- GLASS PANE -->
 <div id="glass-pane"></div>
-    <!-- END GLASS PANE-->
+<!-- END GLASS PANE-->
+
+<!-- ==================== -START- Meeting Form Status Popup Reponse =============================-->
+<div id="rm-container">
+  <div id="rm-header">
+    <h3 id="rm-h-text"> THIS IS THE HEADER</h3>
+  <div id="rm-body">
+    <p id="rm-b-message"></p>
+  </div>
+  <div id="rm-footer">
+    <button id="rm-f-btn">OK</button>
+  </div>
+</div>
+<!-- -END- Status Popup Reponse -->
+
 <!-- ==================== -START- Schedule Call Meeting Section ====================-->
 <div id="schedule-call-container">
 
