@@ -322,3 +322,25 @@
   background-color:#123649;
 
 }
+/*-------------------------------------------------------------------------------------
+========================= Meeting Form Status Popup Reponse============================
+--------------------------------------------------------------------------------------*/
+#rm-container
+{
+  position: absolute;
+  width: 100%;
+}
+
+#rm-header
+{
+  width: 100%;
+  background-color: purple;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#rm-footer
+{
+  width: 100%;
+  background-color: purple;
+}
