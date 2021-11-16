@@ -3,12 +3,7 @@ session_start();
     require '../vendor/autoload.php';
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    use \Firebase\JWT\JWT;
-    use GuzzleHttp\Client;
-
-    define('ZOOM_API_KEY', 'W5o6U54PTlOW2a3MoJ10HQ');
-    define('ZOOM_SECRET_KEY', 'Q9NvRAA0U5fPXKgjNm9cOgYbbyVi8ZgkcJdi');
-
+    
     if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['time']) && isset($_POST['date']))
     {
         if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['time']) && isset($_POST['date']))
@@ -24,23 +19,23 @@ session_start();
             $emailAddress = $_POST['email'];
             //check if email is valid  
             if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
-                $error += "<br/>Invalid email format";
+                $error = $error."\nInvalid email format";
             }
 
             if(!empty($error))
             {
-                echo $error; 
+                echo json_encode([false, "error", $error]); 
             }else{
                 $time = $_POST['time']; 
                 $date = $_POST['date']; 
                 $timelessLimit = date('H:i', strtotime('10:00'));
                 $timegreatLimit = date('H:i', strtotime('16:00'));
                 //check date validity
-                if($date < date('Y-m-d') || $time < date('H:i'))
+                if($date < date('Y-m-d') && $time < date('H:i'))
                 {
-                    echo "date and time must not be in the past";
+                    echo json_encode([false, "error", "date and time must not be in the past"]);
                 }else if($time < $timelessLimit || $time > $timegreatLimit){
-                    echo "Please note our meetings time schedule is between {$timelessLimit} and {$timegreatLimit}";
+                    echo json_encode([false, "error", "Please note our meetings time schedule is between {$timelessLimit} and {$timegreatLimit}"]);
                 }else{   
                     //create phpmailer class object
                     $email = new PHPMailer(true);
@@ -49,7 +44,7 @@ session_start();
                 }
             }
         }else{
-            echo "Please fill in all fields";
+            echo json_encode([false, "error", "Please fill in all fields"]);
         }
     }
 
@@ -201,21 +196,16 @@ session_start();
                 $mail->AltBody = "Please Confirm Meeting Schedule";
                 $mail->send();
                 $this->success_message = "Hi {$this->name}. We have sent you a confirmation email to your provided email-address: {$this->email}".
-                "<br />.Please open the email we sent and confirm your Zoom Meeting Schedule in order to complete the process";
-                $this->session_msg = "success_message";
-                $_SESSION[$this->session_msg] = "success";
-                $_SESSION['message'] = $this->success_message;
-                header('Location:https://itilria.co.za');
+                "\n.Please open the email we sent and confirm your Zoom Meeting Schedule in order to complete the process";
+                
+                echo json_encode([true, "success", $this->success_message]);;
                 
             } catch (Exception $e)
             {
                 $this->error_message = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                $this->session_msg = "error_message";
-                $_SESSION[$this->session_msg] = "error";
-                $_SESSION['message'] = $this->error_message;
-                header('Location:http://127.0.0.1/itilria');
+                
+                echo json_encode([false, "error", $this->error_message]);
             }
         }
     }
 ?>
-

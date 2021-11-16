@@ -54,63 +54,71 @@
       color: white;
       font-weight: bold;
     }
+
+    
   </style>
   <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
-
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+  
 </head>
 
 <body>
-<?php
+  <!-- GLASS PANE -->
+  <div id="glass-pane">
+  </div>
+  <!-- END GLASS PANE-->
 
-if(isset($_SESSION['success']) && !empty($_SESSION['success']))
-{
-  ?>
-  <div id='success'>
+  <!-- ==================== -START- FLASH MESSAGES ============================= -->
     <?php 
-      echo $_SESSION['success'];
-    ?>
-  </div>
-  <script type="text/javascript">
-    setTimeout(function(){
-      document.getElementById("success").style.display = "block";
-    }, 1500);
-
-    setTimeout(function(){
-      document.getElementById("success").style.display = "none";
-    }, 15000);
-  </script>
-  <?php
-  unset($_SESSION['success']);
-}
-
-if(isset($_SESSION['error']) && !empty($_SESSION['error']))
-{
-  ?>
-  <div id='error'>
+      if(isset($_SESSION['success']))
+      {
+        ?>
+        <div id="<?php if(isset($_SESSION['class_val'])){echo $_SESSION['class_val']; }?>">
+          <?php
+            echo $_SESSION['success']; 
+          ?>
+        </div>
+        
     <?php
-      echo $_SESSION['error'];
+      unset($_SESSION['success']);
+      }else if(isset($_SESSION['error'])){
+        ?>
+        <div id="<?php if(isset($_SESSION['class_val'])){echo $_SESSION['class_val']; }?>">
+          <?php
+            echo $_SESSION['error'];
+          ?>
+        </div>
+        <script>
+          var error_msg = document.getElementById("<?php echo $_SESSION['class_val']; ?>");
+          alert(error_msg.innerText);
+        </script>
+    <?php
+      }
+      unset($_SESSION['error']);
+      unset($_SESSION['class_val']);
+      session_destroy();
     ?>
+  <!-- -END- Status Popup Reponse -->
+
+  <!-- ==================== -START- Meeting Form Status Popup Reponse =============================-->
+  <div id="rm-container">
+    <div id="rm-header">
+      <h3 id="rm-h-text"></h3>
+    </div>
+    <div id="rm-body">
+      <p id="rm-b-message"></p>
+    </div>
+    <div id="rm-footer">
+      <center><button id="rm-f-btn">OK</button></center>
+    </div>
   </div>
-  <script type="text/javascript">
-    setTimeout(function(){
-      document.getElementById("error").style.display = "block";
-    }, 1500);
-
-    setTimeout(function(){
-      document.getElementById("error").style.display = "none";
-    }, 15000);
-  </script>
-  <?php
-  unset($_SESSION['error']);
-}
-?>
-
+<!-- -END- Status Popup Reponse -->
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>ITilria</span></a></h1>
+      <h2 class="text-light"><a href="index.php"><img src="/header-index.png"/></a></h2>
         
       </div>
       <!--Start of navbar -->
@@ -131,7 +139,7 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   <!-- End Header -->
 
   <main id="main">
-
+    
     <!-- ======= Contact Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
@@ -147,11 +155,12 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
       </div>
     </section>
     <!-- End Contact Section -->
-
+ 
     <!-- ======= Contact Section ======= -->
     <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      
       <div class="container">
-
+     
         <div class="row">
 
           <div class="col-lg-6">
@@ -181,7 +190,7 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
             </div>
 
           </div>
-
+ 
           <div class="col-lg-6">
             <form action="./forms/contact.php" method="POST" class="php-email-form">
               <div class="row">
@@ -210,22 +219,8 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
         </div>
 
       </div>
-<!-- GLASS PANE -->
-<div id="glass-pane"></div>
-<!-- END GLASS PANE-->
 
-<!-- ==================== -START- Meeting Form Status Popup Reponse =============================-->
-<div id="rm-container">
-  <div id="rm-header">
-    <h3 id="rm-h-text"> THIS IS THE HEADER</h3>
-  <div id="rm-body">
-    <p id="rm-b-message"></p>
-  </div>
-  <div id="rm-footer">
-    <button id="rm-f-btn">OK</button>
-  </div>
-</div>
-<!-- -END- Status Popup Reponse -->
+
 
 <!-- ==================== -START- Schedule Call Meeting Section ====================-->
 <div id="schedule-call-container">
@@ -236,19 +231,19 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   <div class="clear-float"></div>
 </div>
 
-<form action="./forms/schedulecall.php" method="POST" id="form_f">
+<form method="POST" id="form_f">
   <div id="sc-main">
     <div class="sc-field-div" id="sc-name-div">
     <span id="msgName"></span>
-      <center><input type="text" placeholder="Enter Name" id="" name="name"/></center>
+      <center><input type="text" placeholder="Enter Name" id="sc-name" name="name"/></center>
     </div>
     <div class="sc-field-div">
     <span id="msgEmail"></span>
-    <center><input type="email" placeholder="Enter Email" name="email"/></center>
+    <center><input type="email" placeholder="Enter Email" id="sc-email" name="email"/></center>
     </div>
     <div class="sc-field-div">
     <span id="msgContact"></span>
-      <center><input type="text" placeholder="phone number: +27 81 262 4772" id="contact" name="contact"/></center>
+      <center><input type="text" placeholder="phone number: +27 81 262 4772" id="sc-contact" name="contact"/></center>
     </div>
     <div class="sc-date-div time-div">
       <center><label for="sc-time">Time</label></center>  
@@ -261,7 +256,7 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   </div>
 
 <div id="sc-button-div">
-  <input type="submit" id="sc-submit-btn" value="Proceed"/>
+  <input type="button" id="sc-submit-btn" value="Proceed"/>
   <div class="clear-float"></div>
 </div>
 
@@ -278,10 +273,10 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   <div class="clear-float"></div>
 </div>
 
-<form action="./forms/scheduleMeeting.php" method="POST">
+<form method="POST" >
   <div id="szc-main">
-    <div class="szc-field-div"><input type="text" placeholder="Enter Name" name="name"/></div>
-    <div class="szc-field-div"><input type="email" placeholder="Enter Email" name="email"/></div>
+    <div class="szc-field-div"><input type="text" placeholder="Enter Name" id="szc-name" name="name"/></div>
+    <div class="szc-field-div"><input type="email" placeholder="Enter Email" id="szc-email" name="email"/></div>
     <div class="szc-date-div">
       <label for="szc-time">Time: </label> 
       <input type="time" name="time" id="szc-time"/>
@@ -293,7 +288,7 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   </div>
 
   <div id="szc-button-div">
-    <input type="submit" id="szc-submit-btn" value="proceed"/>
+    <input type="button" id="szc-submit-btn" value="proceed"/>
     <div class="clear-float"></div>
   </div>
 
@@ -409,6 +404,6 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./assets/js/schedulemeeting.js"></script>
+  
 </body>
-
 </html>

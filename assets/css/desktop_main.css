@@ -1,8 +1,130 @@
+/**
+* @Author Le-Roy Jongwe  
+* This CSS file is for the desktop version
+*/
+
+/*-------------------------------------------------------------------------
+=========================Request Quotation Section=========================
+--------------------------------------------------------------------------*/
+#req-quote-btn
+{
+  color: white;
+  background-color: blue;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  border: none;
+  transition: 2s;;
+
+}
+
+#req-quote-btn:hover
+{
+  color: gray;
+  background-color: white;
+}
+
+#quo-div{
+  position: absolute;
+  top: 70px;
+  right: 100px;
+  border: 1px solid black;
+  width: 50%;
+  background-color: black;
+  padding: 10px;
+  color:  white;
+}
+
+#quo-form
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: ;
+}
+/*class controls basic attributes*/
+.f-c-p
+{
+  margin-top: 5px;
+}
+
+#service_textfield
+{
+  grid-column: 1/3;
+  padding: 10px;
+}
+/*Add another Type of website button*/
+#add-tow
+{
+  margin-left: 74%;
+  margin-bottom: 50px;
+  background-color: green;
+  border: 1px solid gray;
+  color: white;
+  border-radius: 10px;
+  width: 25%;
+  margin-top: 5px;
+  grid-column-end: 3;
+}
+
+#quot-b-btn{
+  grid-column: 1/3;
+  margin-top:  50px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: white;
+  background-color: purple;
+  border:  1px solid white;
+  padding:  5px 0;
+  border-radius: 25px;
+}
+
+#service_textfield:hover{
+  cursor: pointer;
+}
+
+#service_dropdown{
+  display: none;
+  border: 2px solid brown;
+  background-color: white;
+  grid-column: 1/3;
+  padding: 5px 0px;
+  color: gray;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#service_dropdown ul{
+  padding-left: 0px;
+  line-height: 1.5em;
+} 
+
+#service_dropdown li{
+  list-style-type: none;
+  padding: 5px 10px;
+} 
+
+#service_dropdown li:hover {
+  background-color: purple;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+} 
+
+#service-option
+{
+  grid-column: 1/3;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border:  1px solid white;
+}
 /*-------------------------------------------------------------------------
 ======================== Schedule Meeting Section =========================
 --------------------------------------------------------------------------*/
 #schedule-meeting-container
 {
+  display: block;
+  position: relative;
   background-color: grey;
   text-align: center;
   padding: 20px 0px;
@@ -322,25 +444,86 @@
   background-color:#123649;
 
 }
+
 /*-------------------------------------------------------------------------------------
-========================= Meeting Form Status Popup Reponse============================
+========================= Meeting Form Status Popup Reponse ===========================
 --------------------------------------------------------------------------------------*/
 #rm-container
 {
+  display: none;
   position: absolute;
-  width: 100%;
+  width: 80%;
+  z-index: 20;
+  left: 10%;
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-
+/*-----------------------------------Header-----------------------------------*/
 #rm-header
 {
+  box-sizing: border-box;
   width: 100%;
-  background-color: purple;
+  padding: 10px 0;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#rm-header.error
+{
+  background-color: red;
+  color: white;
+}
+
+#rm-header.success
+{
+  background-color: green;
+  color: white;
+}
+/*------------------------------------Body-----------------------------------*/
+#rm-body
+{
+  width: 100%;
   padding: 10px 0;
   font-weight: bold;
 }
 
+#rm-body.error
+{
+  background-color: white;
+  text-align:center;
+  padding: 30px;
+  color: red;
+}
+
+#rm-body.success
+{
+  background-color: white;
+  text-align:center;
+  padding: 30px;
+  color: green;
+}
+/*------------------------------------Footer-----------------------------------*/
 #rm-footer
 {
   width: 100%;
   background-color: purple;
+  padding: 10px;
+}
+
+#rm-f-btn
+{
+  width: 20%;
+  border: 1px solid white;
+  background-color: blue;
+  color: white;
+  padding: 5px 0;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+#rm-f-btn:hover
+{
+  color: gray;
 }

@@ -33,35 +33,6 @@
 </head>
 
 <body>
-<?php
-
-  if(isset($_SESSION['success_message']) && !empty($_SESSION['success_message']))
-  {
-    ?>
-    <div id='mail-success'>
-      <?php echo $_SESSION['message']; ?>
-    </div>
-    <script type="text/javascript">
-      setTimeout(function(){
-        document.getElementById("mail-success").style.display = "block";
-      }, 1500);
-
-      setTimeout(function(){
-        document.getElementById("mail-success").style.display = "none";
-      }, 20000);
-    </script>
-    <?php
-    unset($_SESSION['message']);
-    unset($_SESSION['success_message']);
-  }
-
-  if(isset($_SESSION['error_message']) && !empty($_SESSION['error_message']))
-  {
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
-    unset($_SESSION['error_message']);
-  }
-?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
  
@@ -76,14 +47,62 @@
         <ul>
           <li><a class="active " href="./index.php">Home</a></li>
           <li><a href="./about.html">About</a></li>
+          <li><a href="./projects.html">Projects</a></li>
+          <li><a href="./sspecials.html">Specials</a></li>
           <li><a href="./services.html">Services</a></li>
           <li><a href="./team.html">Team</a></li>
           <li><a href="./contact.php">Contact Us</a></li>
+          <li><input id="req-quote-btn" type="button" value="Request Quotation"></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!--End of navbar -->
+      <!-- Quotation section-->
+      <div id="quo-div">
+        <form id="quo-form">
+          <input id="service_textfield" type="text" value="enter service">
+          <div id="service_dropdown">
+            <ul id="service-list">
+              <li>Web Design</li>
+              <li>Desktop Application</li>
+              <li>Android Mobile Application</li>
+              <li>IOS Mobile Application</li>
+              <li>Graphic Design</li>
+              <li>IT Help Desk</li>
+            </ul>
+          </div>
+          <fieldset id="service-option">
+            <legend>Please select mode:</legend>
+            <label>Custom<label>
+            <input type="radio" value="custom" name="service_selection">
+            <label>System default</label>
+            <input type="radio" value="default" name="service_selection">
+          </fieldset>
 
+
+          <label class="f-c-p">Type of website</label>
+          <select name="type_website" class="f-c-p" id="wtype-select">
+            <option value="e-commerce website" selected>E-commerce</option>
+            <option value="blog website">Blogging Website</option>
+            <option value="News Website">News Website</option>
+          </select>
+          <label class="f-c-p">Price(R)</label>
+          <input type="text" value="0.00" class="f-c-p" id="wts_price_field">
+          <!-- Add another type of website -->
+          <button id="add-tow">Add +</button>
+
+          <label class="f-c-p">Select number of Pages</label>
+          <select name="ppp" class="f-c-p" id="nop">   <!-- ppp = price per page; nop = number of pages-->
+            <option value="4 to 7">4 - 7 webpage(s)</option>
+            <option value="8 to 12">8 - 12 webpages</option>
+            <option value="13 to 20">13 - 20 webpages</option>
+          </select>
+          <label class="f-c-p">Price(R)</label>
+          <input class="f-c-p" id="nop_field" type="text" name="price_per_page" value="0.00">
+
+          <input type="button" value="Book Now!" id="quot-b-btn">
+        </form>
+      </div>
     </div>
   </header>
   <!-- End Header -->
@@ -95,7 +114,7 @@
         <div class="col-xl-8">
           <h1>Powerful Software Solutions With ITilria</h1>
           <p><strong>Home of Website development and Software services that you can trust</strong></p>
-          <a href="" class="btn-get-started ">Read More</a>
+          
         </div>
       </div>
     </div>
@@ -419,7 +438,7 @@
               Our aim is to provides the best of services to our clients and become a part of their loyal family by providing crucial solutions to their problems as we work together. </p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.facebook.com/Itilria-106002828302778/" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
@@ -457,6 +476,7 @@
   <script src="./assets/js/main.js"></script>
   <script src="./assets/js/buttons.js"></script>
   <script src="./assets/js/learnMore.js"></script>
+  <script src="./assets/js/quote.js"></script>
 </body>
 
 </html>

@@ -75,9 +75,11 @@
       $result = $mysqli->query($this->getQuery());
       if($result){
         $_SESSION['success'] = "Message has been successfully delivered. We will get back to you soon. Thank you!";
+        $_SESSION['class_val'] = "success";
         header('Location: ../contact.php');
       }else{
           $_SESSION['error'] = "Technical error. Please contact support@itilria.co.za";
+          $_SESSION['class_val'] = "error";
           header('Location: ../contact.php');
       }
   }

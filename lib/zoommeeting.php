@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
@@ -113,12 +114,12 @@ class ScheduleZoomMeeting
             try{
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
-                $mail->Host = "smtp.mailtrap.io";
+                $mail->Host = "mail.itilria.co.za";
                 $mail->SMTPAuth = true;
-                $mail->Username = "766237426747c6";
-                $mail->Password = "81a65a0ac4dfe0";
-                $mail->SMTPSecure = "tls";
-                $mail->Port = 2525;
+                $mail->Username = "info@itilria.co.za";
+                $mail->Password = "Kv[Beh;E&s=@";
+                $mail->SMTPSecure = "ssl";
+                $mail->Port = 465;
 
                 $mail->setFrom('info@itilria.co.za', 'Admin');
                 $mail->addAddress($this->getEmail(), $this->getName());
@@ -221,6 +222,15 @@ class ScheduleZoomMeeting
             }
         }
     }
+
+	class SaveMeeting{
+		function save()
+		{
+			$sql = "INSERT INTO meeting(name, email, time, date) VALUES('".$name."', '".$email."', '".date("h:m", strtotime($time))."', '".$date."')";
+			$result = $mysql->query($sql);
+		}
+
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -233,6 +243,7 @@ class ScheduleZoomMeeting
 			}
 
 			#container{
+				display:block;
 				width: 100%;
 				background-color: white;
 				color: gray;
@@ -286,8 +297,6 @@ class ScheduleZoomMeeting
 					unset($_SESSION['zoom_message']);
 					unset($_SESSION['zoom_error_message']);
 				}
-
-				
 			?>
 		</div>
 	</div>
