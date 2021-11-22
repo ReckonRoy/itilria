@@ -26,6 +26,7 @@
 }
 
 #quo-div{
+  display: none;
   position: absolute;
   top: 70px;
   right: 100px;
@@ -40,9 +41,8 @@
 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: ;
 }
-/*class controls basic attributes*/
+/*------------------------class controls basic attributes------------------------------*/
 .f-c-p
 {
   margin-top: 5px;
@@ -53,7 +53,7 @@
   grid-column: 1/3;
   padding: 10px;
 }
-/*Add another Type of website button*/
+/*-------------------------- Add another Type of website button --------------------------*/
 #add-tow
 {
   margin-left: 74%;
@@ -66,6 +66,12 @@
   margin-top: 5px;
   grid-column-end: 3;
 }
+
+/*------------------------- Project Descrption --------------------------------*/
+#project_description{
+  margin-top: 5px;
+}
+
 
 #quot-b-btn{
   grid-column: 1/3;
@@ -117,6 +123,15 @@
   margin-top: 20px;
   margin-bottom: 20px;
   border:  1px solid white;
+}
+
+/*--------------------------------------------------------------------------------
+Custom option in the header that is triggered by selecting the custom radio button
+----------------------------------------------------------------------------------*/
+#custom-div{
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1/3;
 }
 /*-------------------------------------------------------------------------
 ======================== Schedule Meeting Section =========================

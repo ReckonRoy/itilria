@@ -14,7 +14,25 @@ var quoteObject = {
 	wts_price_field: document.getElementById("wts_price_field"),
 	nop: document.getElementById("nop"),
 	nop_field: document.getElementById("nop_field"),
+	custom_div: document.getElementById("custom-div"),
+	custom_rad_btn: document.getElementById("custom_rad_btn"),
+	system_default: document.getElementById("system-default"),
+	req_quote_btn: document.getElementById("req-quote-btn"),
+	quote_div: document.getElementById("quo-div"),
 
+	//dispay quote modal when quote button has been clicked
+	req_btn_function: function(){
+
+		quoteObject.req_quote_btn.addEventListener("click", function(){
+			if(quoteObject.quote_div.style.display == "")
+			{
+				quoteObject.quote_div.style.display = "block";
+			}else{
+				quoteObject.quote_div.style.display = "";
+			}
+			
+		});
+	},
 	/**
 	 * The following fuction works the service text field its main purporse is to select the 
 	 *service that the client needs and lead to the next action a user should take
@@ -113,8 +131,42 @@ var quoteObject = {
 		
 	},
 
+	/**
+	 * This function manages the visibility and other functionalities
+	 *  that happen when the radio buttons have been clicked
+	 */ 
+
+	 custom_selection: function()
+	 {
+	 	quoteObject.custom_div.checked = "false";
+	 	quoteObject.custom_rad_btn.addEventListener("change", function(){
+	 		if(this.checked == true)
+	 		{	
+	 			if(quoteObject.quote_textfield.value == "Web Design")
+	 			{
+	 				quoteObject.custom_div.style.display = "grid";
+	 			}else{
+	 				console.log("UI coming soon");
+	 			}
+	 			
+	 		}
+	 	});
+
+	 	quoteObject.system_default.addEventListener("change", function()
+	 	{
+	 		if(this.checked == true)
+	 		{
+	 			quoteObject.custom_div.style.display = "none";
+	 			quoteObject.custom_div.checked = "false";
+	 		}
+	 	});
+
+	 },
+
 }
 
+quoteObject.req_btn_function();
 quoteObject.select_service();
 quoteObject.website_selection();
 quoteObject.nop_selection();
+quoteObject.custom_selection();
