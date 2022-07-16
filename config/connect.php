@@ -1,9 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set('error_reporting', E_ALL);
+    error_reporting(E_ALL);
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    
+
     $host = "localhost";
     $username = "root";
-    $password = "Re89on2#23_iti22ria*99";
+    $password = "Re89on2#23";
     $db = "itilria";
     //$host = "localhost:3306";
     //$password = "itilria#8kk0";

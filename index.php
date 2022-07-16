@@ -59,8 +59,8 @@
       <!--End of navbar -->
       <!-- Quotation section-->
       <div id="quo-div">
-        <form id="quo-form">
-          <input id="service_textfield" type="text" value="enter service">
+        <form id="quo-form" method="post" action="./forms/quotation_process.php">
+          <input id="service_textfield" type="text" value="Please choose a service..." name="service">
           <div id="service_dropdown">
             <ul id="service-list">
               <li>Web Design</li>
@@ -74,35 +74,35 @@
           <fieldset id="service-option">
             <legend>Please select mode:</legend>
             <label>Custom<label>
-            <input type="radio" value="custom" name="service_selection" id="custom_rad_btn">
+            <input type="radio" value="custom" name="mode" id="custom_rad_btn">
             <label>System default</label>
-            <input type="radio" value="default" name="service_selection" id="system-default">
+            <input type="radio" value="default" name="mode" id="system-default">
           </fieldset>
 
           <!-- =================Div that contains option if user chooses custom ================-->
           <div id="custom-div" class="custom-div">
             <label class="f-c-p">Type of website</label>
-            <select name="type_website" class="f-c-p" id="wtype-select">
+            <select name="serviceType" class="f-c-p" id="wtype-select">
               <option value="e-commerce website" selected>E-commerce</option>
               <option value="blog website">Blogging Website</option>
               <option value="News Website">News Website</option>
             </select>
             <label class="f-c-p">Price(R)</label>
-            <input type="text" value="0.00" class="f-c-p" id="wts_price_field">
+            <input type="number" value="0.00" class="f-c-p" id="wts_price_field" name="servicePrice">
             <!-- Add another type of website -->
             <button id="add-tow">Add +</button>
 
             <label class="f-c-p">Select number of Pages</label>
-            <select name="ppp" class="f-c-p" id="nop">   <!-- ppp = price per page; nop = number of pages-->
-              <option value="4 to 7">4 - 7 webpage(s)</option>
+            <select name="nop" class="f-c-p" id="nop">   <!-- nop = number of pages-->
+              <option value="4 to 7" selected>4 - 7 webpage(s)</option>
               <option value="8 to 12">8 - 12 webpages</option>
               <option value="13 to 20">13 - 20 webpages</option>
             </select>
             <label class="f-c-p">Price(R)</label>
-            <input class="f-c-p" id="nop_field" type="text" name="price_per_page" value="0.00">
+            <input class="f-c-p" id="nop_field" type="number" name="nopPrice" value="0.00">
             <label>Describe your project:</label>
-            <textarea cols="10" rows="3" name="project_description" id="project_description"></textarea>
-            <input type="button" value="Book Now!" id="quot-b-btn">
+<textarea cols="3" rows="3" name="project_descr" placeholder="Type your project description here..." id="project_description"></textarea>
+            <input type="submit" value="Book Now!" id="quot-b-btn">
         </div>
           
         </form>
